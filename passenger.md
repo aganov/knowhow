@@ -1,0 +1,121 @@
+# Passenger + Nginx on Ubuntu 16.04 LTS (with APT)
+
+NOTICE: Use https://www.phusionpassenger.com/library/install/nginx/install/oss/ to find proper setup instructions
+
+NOTICE: Find a way to add https://github.com/openresty/headers-more-nginx-module
+
+## Step 1: install Passenger packages
+
+```bash
+# Install our PGP key and add HTTPS support for APT
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 561F9B9CAC40B2F7
+sudo apt-get install -y apt-transport-https ca-certificates
+
+# Add our APT repository
+sudo sh -c 'echo deb https://oss-binaries.phusionpassenger.com/apt/passenger xenial main > /etc/apt/sources.list.d/passenger.list'
+sudo apt-get update
+
+# Install Passenger + Nginx
+sudo apt-get install -y nginx-extras passenger
+```
+
+## Step 2: enable the Passenger Nginx module and restart Nginx
+
+Edit `/etc/nginx/nginx.conf` and uncomment include `/etc/nginx/passenger.conf;` and restart `nginx`
+
+```bash
+vim /etc/nginx/nginx.conf
+sudo service nginx restart
+```
+
+## Step 3: check installation
+
+```bash
+passenger-config validate-install
+passenger-memory-stats
+```
+
+## Step 4: setup SSL (Optional)
+
+NOTICE:
+ * https://weakdh.org/sysadmin.html
+ * https://certbot.eff.org/
+
+```
+# Enable Diffie-Hellman for TLS
+mkdir /etc/nginx/ssl
+openssl dhparam -out /etc/nginx/ssl/dhparams.pem 2048
+```
+
+`/etc/nginx/nginx.conf`
+
+```
+user deploy;
+worker_processes auto;
+pid /run/nginx.pid;
+
+events {
+  worker_connections  1024;
+}
+
+http {
+  include       mime.types;
+  default_type  application/octet-stream;
+
+  access_log /var/log/nginx/access.log;
+  error_log /var/log/nginx/error.log;
+
+  # server_names_hash_bucket_size 64;
+  # server_name_in_redirect off;
+
+  ssl_ciphers 'ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA';
+  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+  ssl_prefer_server_ciphers on;
+
+  sendfile on;
+  tcp_nopush on;
+  tcp_nodelay on;
+  keepalive_timeout 65;
+  types_hash_max_size 2048;
+  client_max_body_size 128m;
+  server_tokens off;
+
+  gzip                    on;
+  gzip_disable            "msie6";
+
+  gzip_vary on;
+  gzip_proxied any;
+  gzip_comp_level 6;
+  gzip_buffers 16 8k;
+  gzip_http_version 1.1;
+  gzip_types text/plain text/css application/json application/x-javascript application/javascript text/xml application/xml application/xml+rss text/javascript;
+
+  # passenger_pool_idle_time 0;
+  more_clear_headers 'Server' 'X-Powered-By' 'X-Runtime';
+
+  include /etc/nginx/passenger.conf;
+  include /etc/nginx/conf.d/*.conf;
+  include /etc/nginx/sites-enabled/*;
+}
+```
+
+Create default site
+
+`/etc/nginx/sites-enabled/example.com`
+
+```
+server {
+  listen 80 default_server;
+  listen 443 ssl;
+  server_name example.com;
+  access_log /dev/null;
+  error_log /dev/null;
+
+  passenger_enabled on;
+  root /var/www/example.com/current/public;
+
+  ssl_dhparam          /etc/nginx/ssl/dhparams.pem;
+  ssl_certificate      /etc/nginx/ssl/example.com.pem;
+  ssl_certificate_key  /etc/nginx/ssl/example.com.key;
+}
+```
