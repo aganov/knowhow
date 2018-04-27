@@ -39,7 +39,7 @@ To actually halt execution and use pry as normal, you have to define these optio
 web:
   tty: true
   stdin_open: true
-``
+```
 
 In order to attach to a docker container, you need to know what its ID is. Use `docker ps` to get a list of the running containers and their ids.
 
