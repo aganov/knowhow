@@ -2,8 +2,8 @@ version: "3"
 
 volumes:
   minio:
-  redis:
   postgres:
+  redis:
 
 services:
   postgres:
@@ -34,8 +34,8 @@ services:
     tty: true
     stdin_open: true
     depends_on:
-      - postgres
       - minio
+      - postgres
       - redis
     build: .
     ports:
@@ -47,6 +47,7 @@ services:
     environment:
       REDIS_URL: redis://redis:6379/0
       DATABASE_URL: postgresql://postgres@postgres:5432
+      MINIO_ENDPOINT: http://minio:9000
       WEBPACKER_DEV_SERVER_HOST: webpacker
       WEBPACKER_DEV_SERVER_PORT: 3035
 

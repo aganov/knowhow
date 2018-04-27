@@ -31,7 +31,15 @@ docker-compose run --rm web rake db:create db:migrate db:seed
 
 The `--rm` flag ensures the container that is used to run this command is removed afterwards. This saves space on your local machine.
 
-# Debug
+# Debugging
+
+To actually halt execution and use pry as normal, you have to define these options to docker-compose.yml:
+
+```yaml
+web:
+  tty: true
+  stdin_open: true
+``
 
 In order to attach to a docker container, you need to know what its ID is. Use `docker ps` to get a list of the running containers and their ids.
 
@@ -53,7 +61,7 @@ Then you can use the numeric ID to attach to the docker instance:
 docker attach af910e62d36b
 ```
 
-It may not immediately show a rails console, but start typing and it should appear. If you keep this attached, it should show the rails console prompt the next time you hit the `pry breakpoint`.
+If you keep this attached, it should show the rails console prompt the next time you hit the `pry breakpoint`.
 
 # Security
 
