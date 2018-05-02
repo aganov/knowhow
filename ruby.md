@@ -38,11 +38,9 @@ git clone https://github.com/sstephenson/ruby-build.git /usr/local/rbenv/plugins
 ```bash
 aptitude install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev
 aptitude install libcurl4-openssl-dev libpcre3-dev libxml2 libxml2-dev libxslt1-dev
-aptitude install libjemalloc-dev
 ```
 
 ```bash
-# RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 2.4.3
 rbenv install 2.4.3
 rbenv global 2.4.3
 ruby --version
