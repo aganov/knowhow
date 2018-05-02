@@ -1,0 +1,14 @@
+{
+  "animation_enabled": false,
+  "color_scheme": "Packages/User/Putty.tmTheme",
+  "font_face": "Fira Code",
+  "font_size": 16,
+  "ignored_packages":
+  [
+    "Vintage"
+  ],
+  "tab_size": 2,
+  "theme": "Sienna.sublime-theme",
+  "translate_tabs_to_spaces": true,
+  "trim_trailing_white_space_on_save": true
+}
