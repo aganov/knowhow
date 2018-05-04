@@ -38,7 +38,11 @@ git clone https://github.com/sstephenson/ruby-build.git /usr/local/rbenv/plugins
 ```bash
 aptitude install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev
 aptitude install libcurl4-openssl-dev libpcre3-dev libxml2 libxml2-dev libxslt1-dev
+aptitude install libjemalloc-dev # If you plan to install ruby `--with-jemalloc`
 ```
+
+Prefix `rbenv install` with `RUBY_CONFIGURE_OPTS=--with-jemalloc` to install ruby with jemalloc instead of `glibc malloc`. This is known to cause problems with passenger in the past. @see https://github.com/phusion/passenger/issues/1747
+
 
 ```bash
 rbenv install 2.4.3
