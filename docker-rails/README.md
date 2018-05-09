@@ -67,3 +67,9 @@ If you keep this attached, it should show the rails console prompt the next time
 
 NB: If you are using this for staging/production deployment don't forget to disallow all incomming traffic except `22`,  `80` and `433` ports, using your cloud service firewall or `ufw`
 
+# Cleanup
+
+```sh
+docker system prune -a --volumes
+docker network prune
+```
