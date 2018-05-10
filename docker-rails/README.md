@@ -16,9 +16,11 @@ default: &default
   url: <%= ENV["DATABASE_URL"] %>
 
 development:
+  <<: *default
   database: app_development
 
 test:
+  <<: *default
   database: app_test
 ```
 
