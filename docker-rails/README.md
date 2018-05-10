@@ -6,6 +6,12 @@ Install either [Docker](https://www.docker.com/) or [Docker for Mac](https://www
 
 This Rails trickery allows us to not specify a database name in our DATABASE_URL environment variable, and instead use the config file to define it. The reason I like doing this is because it allows us run tests against the same DB without having to swizzle around DATABASE_URL values.
 
+`.env`
+
+```sh
+DATABASE_URL=postgres://localhost
+```
+
 `config/databse.yml`
 
 ```yml
