@@ -1,0 +1,5 @@
+#!/bin/sh
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+git status -s | grep -E 'A|M|R' | awk '{print $2}' | xargs bundle exec rubocop --display-cop-names --extra-details --parallel --force-exclusion
