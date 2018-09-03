@@ -1,4 +1,4 @@
-### Libraries
+## Libraries
 
  * [Add support to complex resources of PostgreSQL, like data types, user-defined types and auxiliary statements (CTE)](https://github.com/crashtech/torque-postgresql)
 
