@@ -4,6 +4,22 @@ NOTICE: Use https://www.phusionpassenger.com/library/install/nginx/install/oss/ 
 
 NOTICE: Find a way to add https://github.com/openresty/headers-more-nginx-module
 
+## Step 0: install nginx
+
+```sh
+vim /etc/apt/sources.list.d/nginx.list
+```
+
+```
+deb http://nginx.org/packages/debian/ bionic nginx
+deb-src http://nginx.org/packages/debian/ bionic nginx
+```
+
+```sh
+aptitude update
+aptitude install nginx
+```
+
 ## Step 1: install Passenger packages
 
 ```bash
