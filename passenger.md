@@ -9,8 +9,8 @@ NOTICE: Find a way to add https://github.com/openresty/headers-more-nginx-module
 ```sh
 wget -O nginx_signing.key http://nginx.org/keys/nginx_signing.key
 sudo apt-key add nginx_signing.key
-echo "deb http://nginx.org/packages/mainline/ubuntu/ bionic nginx
-deb-src http://nginx.org/packages/mainline/ubuntu/ bionic nginx" >> /etc/apt/sources.list.d/nginx.list
+echo "deb http://nginx.org/packages/ubuntu/ bionic nginx
+deb-src http://nginx.org/packages/ubuntu/ bionic nginx" >> /etc/apt/sources.list.d/nginx.list
 apt-get update
 apt-get install nginx
 ```
