@@ -32,7 +32,7 @@ chown minio:minio /etc/minio
 ```
 
 ```sh
-vim nano /etc/default/minio
+vim /etc/default/minio
 ```
 
 ```
