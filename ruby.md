@@ -36,8 +36,8 @@ git clone https://github.com/sstephenson/ruby-build.git /usr/local/rbenv/plugins
  * Install some other stuff
 
 ```bash
-aptitude install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev
-aptitude install libcurl4-openssl-dev libpcre3-dev libxml2 libxml2-dev libxslt1-dev
+# Depending on your version of Ubuntu/Debian/Mint, libgdbm5 won't be available. In that case, try with libgdbm3.
+apt-get install autoconf bison build-essential patch libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm5 libgdbm-dev liblzma-dev
 aptitude install libjemalloc-dev # If you plan to install ruby `--with-jemalloc`
 ```
 
