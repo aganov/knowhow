@@ -4,7 +4,7 @@ NOTICE: Use https://www.phusionpassenger.com/library/install/nginx/install/oss/ 
 
 NOTICE: Find a way to add https://github.com/openresty/headers-more-nginx-module
 
-## Step 0: install nginx
+## Step 0: install nginx (currently not compatible with passenger)
 
 ```sh
 wget -O nginx_signing.key http://nginx.org/keys/nginx_signing.key
@@ -65,9 +65,11 @@ openssl dhparam -out /etc/nginx/ssl/dhparams.pem 2048
 user deploy;
 worker_processes auto;
 pid /run/nginx.pid;
+include /etc/nginx/modules-enabled/*.conf;
 
 events {
-  worker_connections  1024;
+  worker_connections 768;
+  # multi_accept on;
 }
 
 http {
@@ -92,8 +94,11 @@ http {
   client_max_body_size 128m;
   server_tokens off;
 
-  gzip                    on;
-  gzip_disable            "msie6";
+  # server_names_hash_bucket_size 64;
+  # server_name_in_redirect off
+
+  gzip on;
+  gzip_disable "msie6";
 
   gzip_vary on;
   gzip_proxied any;
@@ -105,7 +110,6 @@ http {
   # passenger_pool_idle_time 0;
   more_clear_headers 'Server' 'X-Powered-By' 'X-Runtime';
 
-  include /etc/nginx/passenger.conf;
   include /etc/nginx/conf.d/*.conf;
   include /etc/nginx/sites-enabled/*;
 }
