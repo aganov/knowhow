@@ -24,4 +24,4 @@
   * [Theme - Sienna](https://packagecontrol.io/packages/Theme%20-%20Sienna)
   * [ToggleQuotes](https://packagecontrol.io/packages/ToggleQuotes)
   * [Type​Script Syntax](https://packagecontrol.io/packages/TypeScript%20Syntax)
-  * [Vuejs Complete Package](https://packagecontrol.io/packages/Vuejs%20Complete%20Package)
+  * [Vue Syntax Highlight](https://packagecontrol.io/packages/Vue%20Syntax%20Highlight)
