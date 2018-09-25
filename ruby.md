@@ -45,8 +45,8 @@ Prefix `rbenv install` with `RUBY_CONFIGURE_OPTS=--with-jemalloc` to install rub
 
 
 ```bash
-rbenv install 2.4.3
-rbenv global 2.4.3
+rbenv install 2.4.4
+rbenv global 2.4.4
 ruby --version
 ```
 
