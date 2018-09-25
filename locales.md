@@ -1,3 +1,8 @@
+
+```sh
+locale-gen en_US.UTF-8
+```
+
 Insert into /etc/default/locale:
 
 ```
@@ -7,6 +12,5 @@ LANG="en_US.UTF-8"
 ```
 
 ```sh
-locale-gen en_US.UTF-8
-reboot
+source /etc/default/locale
 ```
