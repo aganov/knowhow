@@ -3,7 +3,7 @@
 locale-gen en_US.UTF-8
 ```
 
-Insert into /etc/default/locale:
+Insert into `/etc/default/locale`
 
 ```
 LC_CTYPE="en_US.UTF-8"
