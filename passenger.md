@@ -1,10 +1,10 @@
-# Passenger + Nginx on Ubuntu 16.04 LTS (with APT)
+# Passenger + Nginx on Ubuntu 18.04 LTS (with APT)
 
 NOTICE: Use https://www.phusionpassenger.com/library/install/nginx/install/oss/ to find proper setup instructions
 
 NOTICE: Find a way to add https://github.com/openresty/headers-more-nginx-module
 
-## Step 0: install nginx (currently not compatible with passenger)
+## Step 1: install nginx
 
 ```sh
 wget -O nginx_signing.key http://nginx.org/keys/nginx_signing.key
@@ -12,10 +12,10 @@ sudo apt-key add nginx_signing.key
 echo "deb http://nginx.org/packages/ubuntu/ bionic nginx
 deb-src http://nginx.org/packages/ubuntu/ bionic nginx" >> /etc/apt/sources.list.d/nginx.list
 apt-get update
-apt-get install nginx
+apt-get install nginx-extras
 ```
 
-## Step 1: install Passenger packages
+## Step 2: install Passenger packages
 
 ```bash
 # Install our PGP key and add HTTPS support for APT
@@ -31,23 +31,21 @@ sudo apt-get update
 sudo apt-get install -y libnginx-mod-http-passenger
 ```
 
-## Step 2: enable the Passenger Nginx module and restart Nginx
-
-Edit `/etc/nginx/nginx.conf` and uncomment include `/etc/nginx/passenger.conf;` and restart `nginx`
+## Step 3: enable the Passenger Nginx module and restart Nginx
 
 ```bash
-vim /etc/nginx/nginx.conf
-sudo service nginx restart
+if [ ! -f /etc/nginx/modules-enabled/50-mod-http-passenger.conf ]; then sudo ln -s /usr/share/nginx/modules-available/mod-http-passenger.load /etc/nginx/modules-enabled/50-mod-http-passenger.conf ; fi
+sudo ls /etc/nginx/conf.d/mod-http-passenger.conf
 ```
 
-## Step 3: check installation
+## Step 4: check installation
 
 ```bash
 passenger-config validate-install
 passenger-memory-stats
 ```
 
-## Step 4: setup SSL (Optional)
+## Step 5: setup SSL (Optional)
 
 NOTICE:
  * https://weakdh.org/sysadmin.html
