@@ -1,5 +1,10 @@
 # UFW - program for managing a netfilter firewall
 
+ * https://www.digitalocean.com/community/tutorials/how-to-setup-a-firewall-with-ufw-on-an-ubuntu-and-debian-cloud-server
+ * https://www.digitalocean.com/community/tutorials/ufw-essentials-common-firewall-rules-and-commands
+ * https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-against-automated-attacks
+
+
 First, obviously, you want to make sure UFW is installed. It should be installed by default in Ubuntu, but if for some reason it’s not, you can install the package using aptitude or apt-get using the following commands:
 
 ```
