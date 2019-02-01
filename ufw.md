@@ -19,7 +19,9 @@ ufw status
 
 ## Set Up Defaults
 
-One of the things that will make setting up any firewall easier is to define some default rules for allowing and denying connections. UFW’s defaults are to deny all incoming connections and allow all outgoing connections. This means anyone trying to reach your cloud server would not be able to connect, while any application within the server would be able to reach the outside world. To set the defaults used by UFW, you would use the following commands:
+First of all check your `/etc/default/ufw` and config your firewall according your needs.
+
+One of the things that will make setting up any firewall easier is to define some default rules for allowing and denying connections. UFW’s defaults are to deny all incoming connections and allow all outgoing connections. This means anyone trying to reach your cloud server would not be able to connect, while any application within the server would be able to reach the outside world. This is already done on Ubuntu. To set the defaults used by UFW, you would use the following commands:
 
 ```
 ufw default deny incoming
