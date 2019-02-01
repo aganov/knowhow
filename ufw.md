@@ -1,3 +1,5 @@
+# UFW - program for managing a netfilter firewall
+
 First, obviously, you want to make sure UFW is installed. It should be installed by default in Ubuntu, but if for some reason it’s not, you can install the package using aptitude or apt-get using the following commands:
 
 ```
@@ -53,7 +55,7 @@ Allow All Incoming HTTPS
 ufw allow https
 ```
 
-# Check added rules
+## Check added rules
 
 ```
 ufw show added
