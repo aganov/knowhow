@@ -90,7 +90,6 @@ ufw status verbose
 ```
 
 ```
-ufw status verbose
 Status: active
 Logging: on (low)
 Default: deny (incoming), allow (outgoing), disabled (routed)
