@@ -53,6 +53,19 @@ Allow All Incoming HTTPS
 ufw allow https
 ```
 
+# Check added rules
+
+```
+ufw show added
+```
+
+```
+Added user rules (see 'ufw status' for running firewall):
+ufw allow 22/tcp
+ufw allow 80/tcp
+ufw allow 443/tcp
+```
+
 ## Turn It On
 
 After we’ve gotten UFW to where we want it, we can turn it on using this command (remember: if you’re connecting via SSH, make sure you’ve set your SSH port, commonly port 22, to be allowed to receive connections):
