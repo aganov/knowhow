@@ -2,7 +2,7 @@
 
 NOTICE: Use https://www.phusionpassenger.com/library/install/nginx/install/oss/ to find proper setup instructions
 
-## Step 1: install nginx
+## Step 1: install nginx (Optional)
 
 ```sh
 wget -O nginx_signing.key http://nginx.org/keys/nginx_signing.key
