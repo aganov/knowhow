@@ -2,8 +2,6 @@
 
 NOTICE: Use https://www.phusionpassenger.com/library/install/nginx/install/oss/ to find proper setup instructions
 
-NOTICE: Find a way to add https://github.com/openresty/headers-more-nginx-module
-
 ## Step 1: install nginx
 
 ```sh
