@@ -1,6 +1,7 @@
 ## Libraries
 
- * [Add support to complex resources of PostgreSQL, like data types, user-defined types and auxiliary statements (CTE)](https://github.com/crashtech/torque-postgresql)
+ * https://github.com/crashtech/torque-postgresql Add support to complex resources of PostgreSQL, like data types, user-defined types and auxiliary statements (CTE)]
+ * https://github.com/bibendi/activerecord-postgres_enum Integrate PostgreSQL's enum data type into ActiveRecord's schema and migrations.
 
 
 ## PostgreSQL
