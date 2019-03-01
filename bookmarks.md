@@ -19,3 +19,4 @@
  * https://coreos.com/etcd/ - A distributed, reliable key-value store for the most critical data of a distributed system.
  * https://skaffold.dev/ - Application is deployed to Kubernetes with a single command using Skaffold.
  * https://www.envoyproxy.io/ - Envoy is an L7 proxy and communication bus designed for large modern service oriented architectures. 
+ * https://www.vaultproject.io/ - A tool for secrets management, encryption as a service, and privileged access management
