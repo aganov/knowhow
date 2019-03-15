@@ -13,10 +13,13 @@
 ## DevOps
 
  * https://portworx.com/ - Cloud native storage and data management for Kubernetes
- * https://www.consul.io/ - Consul is a distributed service mesh to connect, secure, and configure services across any runtime platform and public or private cloud
- * https://istio.io/ - Connect, secure, control, and observe services.
- * https://github.com/sorintlab/stolon - PostgreSQL cloud native High Availability and more.
- * https://coreos.com/etcd/ - A distributed, reliable key-value store for the most critical data of a distributed system.
- * https://skaffold.dev/ - Application is deployed to Kubernetes with a single command using Skaffold.
+ * https://istio.io/ - Connect, secure, control, and observe services. 
  * https://www.envoyproxy.io/ - Envoy is an L7 proxy and communication bus designed for large modern service oriented architectures. 
+ * https://github.com/sorintlab/stolon - PostgreSQL cloud native High Availability and more.
+ * https://skaffold.dev/ - Application is deployed to Kubernetes with a single command using Skaffold.
  * https://www.vaultproject.io/ - A tool for secrets management, encryption as a service, and privileged access management
+
+## Backup
+
+  * https://restic.net/ - Restic is a program that does backups right.
+  * https://github.com/wal-g/wal-g - Archival and Restoration for Postgres
