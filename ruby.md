@@ -37,22 +37,22 @@ git clone https://github.com/sstephenson/ruby-build.git /usr/local/rbenv/plugins
 
 ```bash
 # Depending on your version of Ubuntu/Debian/Mint, libgdbm5 won't be available. In that case, try with libgdbm3.
-apt-get install autoconf bison build-essential patch libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm5 libgdbm-dev liblzma-dev
-aptitude install libjemalloc-dev # If you plan to install ruby `--with-jemalloc`
+apt install -y autoconf bison build-essential patch libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm5 libgdbm-dev liblzma-dev
+apt install -y libjemalloc-dev # If you plan to install ruby `--with-jemalloc`
 ```
 
 Prefix `rbenv install` with `RUBY_CONFIGURE_OPTS=--with-jemalloc` to install ruby with jemalloc instead of `glibc malloc`. This is known to cause problems with passenger in the past. @see https://github.com/phusion/passenger/issues/1747
 
 
 ```bash
-rbenv install 2.4.4
-rbenv global 2.4.4
+rbenv install 2.5.5
+rbenv global 2.5.5
 ruby --version
 ```
 
 ```bash
-echo 'gem: --no-document' > /root/.gemrc
-echo 'gem: --no-document' > /home/deploy/.gemrc
+echo 'gem: --no-document' | tee /root/.gemrc
+echo 'gem: --no-document' | tee /home/deploy/.gemrc
 chown deploy:deploy /home/deploy/.gemrc
 
 gem install bundler
