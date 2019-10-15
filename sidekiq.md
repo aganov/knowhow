@@ -14,7 +14,7 @@ ExecStart=/bin/bash -lc '/usr/local/rbenv/shims/bundle exec sidekiq -e productio
 
 # use `systemctl reload sidekiq` to send the quiet signal to Sidekiq
 # at the start of your deploy process.
-ExecReload=/usr/bin/kill -TSTP $MAINPID
+ExecReload=/bin/kill -TSTP $MAINPID
 
 User=deploy
 Group=deploy
