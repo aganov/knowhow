@@ -42,8 +42,8 @@ WantedBy=multi-user.target
 3) Use `visudo` and allow `deploy` user to restart and reload sidekiq
 
 ```
-%deploy ALL= NOPASSWD: /bin/systemctl restart sidekiq
 %deploy ALL= NOPASSWD: /bin/systemctl reload sidekiq
+%deploy ALL= NOPASSWD: /bin/systemctl restart sidekiq
 ```
 
 4) Add some tasks to capistrano
