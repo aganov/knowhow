@@ -22,9 +22,9 @@ apt-get install postgresql-10 libpq-dev
 
 ## Replication
 
-https://31337.it/postgres%20replication/
-https://valehagayev.wordpress.com/2018/08/15/postgresql-11-streaming-replication-hot-standby/
-https://github.com/lesovsky/ansible-postgresql-sr-on-el6
-https://info.crunchydata.com/blog/wheres-my-replica-troubleshooting-streaming-replication-synchronization-in-postgresql
-https://www.percona.com/blog/2018/11/30/postgresql-streaming-physical-replication-with-slots/
-https://www.2ndquadrant.com/en/blog/replication-configuration-changes-in-postgresql-12/
+ * https://31337.it/postgres%20replication/
+ * https://valehagayev.wordpress.com/2018/08/15/postgresql-11-streaming-replication-hot-standby/
+ * https://github.com/lesovsky/ansible-postgresql-sr-on-el6
+ * https://info.crunchydata.com/blog/wheres-my-replica-troubleshooting-streaming-replication-synchronization-in-postgresql
+ * https://www.percona.com/blog/2018/11/30/postgresql-streaming-physical-replication-with-slots/
+ * https://www.2ndquadrant.com/en/blog/replication-configuration-changes-in-postgresql-12/
