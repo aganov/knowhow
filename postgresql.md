@@ -27,4 +27,5 @@ apt-get install postgresql-10 libpq-dev
  * https://github.com/lesovsky/ansible-postgresql-sr-on-el6
  * https://info.crunchydata.com/blog/wheres-my-replica-troubleshooting-streaming-replication-synchronization-in-postgresql
  * https://www.percona.com/blog/2018/11/30/postgresql-streaming-physical-replication-with-slots/
+ * https://www.percona.com/blog/2019/10/11/how-to-set-up-streaming-replication-in-postgresql-12/
  * https://www.2ndquadrant.com/en/blog/replication-configuration-changes-in-postgresql-12/
