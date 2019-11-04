@@ -19,6 +19,15 @@ apt install postgresql-12 libpq-dev
  * Create Database Users https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-ruby-on-rails-application-on-ubuntu-14-04
  * Upgrading https://dev.to/jkostolansky/how-to-upgrade-postgresql-from-11-to-12-2la6
 
+## Step 3: enable pg_stat_statements
+
+```sql
+ALTER SYSTEM SET shared_preload_libraries TO 'pg_stat_statements';
+ALTER SYSTEM SET pg_stat_statements.track TO 'all';
+ALTER SYSTEM SET pg_stat_statements.max TO 10000;
+ALTER SYSTEM SET track_activity_query_size TO 2048;
+```
+
 ## Replication
 
  * https://31337.it/postgres%20replication/
