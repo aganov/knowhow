@@ -21,3 +21,9 @@ And here's how to install the binaries on MacOS (using [Homebrew](https://brew.s
 ```bash
 brew install jpegoptim optipng pngquant gifsicle
 ```
+
+# Image manupulation tools
+
+```
+apt-get install --no-install-recommends libvips42 # install libvips without nip2
+```
