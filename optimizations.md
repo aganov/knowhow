@@ -8,9 +8,3 @@
  * https://bugs.ruby-lang.org/issues/14718
  * https://bugs.ruby-lang.org/issues/14759
  * https://mikeperham.com/2018/04/25/taming-rails-memory-bloat
- 
-## Check CPU steal
-
-```
-sar -u 1
-```
