@@ -23,9 +23,11 @@ apt install postgresql-12 libpq-dev
 
 ```sql
 ALTER SYSTEM SET shared_preload_libraries TO 'pg_stat_statements';
+# service postgresql restart
 ALTER SYSTEM SET pg_stat_statements.track TO 'all';
 ALTER SYSTEM SET pg_stat_statements.max TO 10000;
 ALTER SYSTEM SET track_activity_query_size TO 2048;
+SELECT pg_reload_conf();
 ```
 
 ## Replication
