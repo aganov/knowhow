@@ -27,7 +27,7 @@ chmod +x /etc/profile.d/rbenv.sh
 
 ``` bash
 mkdir /usr/local/rbenv/plugins
-git clone https://github.com/sstephenson/ruby-build.git /usr/local/rbenv/plugins/ruby-build
+git clone https://github.com/rbenv/ruby-build.git /usr/local/rbenv/plugins/ruby-build
 ```
 
 ## Install latest stable ruby
