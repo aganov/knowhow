@@ -1,7 +1,7 @@
 # rbenv
 
 ```bash
-git clone https://github.com/sstephenson/rbenv.git /usr/local/rbenv
+git clone https://github.com/rbenv/rbenv.git /usr/local/rbenv
 vim /etc/profile.d/rbenv.sh
 ```
 
@@ -44,8 +44,8 @@ Prefix `rbenv install` with `RUBY_CONFIGURE_OPTS=--with-jemalloc` to install rub
 
 
 ```bash
-RUBY_CONFIGURE_OPTS="--enable-yjit --with-jemalloc" rbenv install 3.2.2
-rbenv global 3.2.2
+RUBY_CONFIGURE_OPTS="--enable-yjit --with-jemalloc" rbenv install 3.3.1
+rbenv global 3.3.1
 gem update --system
 ruby --version
 ```
