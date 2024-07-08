@@ -17,6 +17,8 @@ ListenStream=
 ListenStream=<new_port_number>
 ```
 
+> The line ListenStream= is required that port 22 is no longer used. Without this line, the SSH server would then be accessible via port 22 (default) and <new_port_number>.
+
 3. Save the file and exit the editor.
 
 4. Reload the systemd manager configuration
