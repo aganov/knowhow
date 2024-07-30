@@ -24,6 +24,7 @@ Environment=AWS_ACCESS_KEY_ID=xxx
 Environment=AWS_SECRET_ACCESS_KEY=xxx
 Environment=IMGPROXY_KEY=xxx
 Environment=IMGPROXY_SALT=xxx
+Environment=IMGPROXY_USE_ETAG=true
 Environment=IMGPROXY_USE_S3=true
 Environment=IMGPROXY_S3_ENDPOINT=xxx
 Environment=IMGPROXY_S3_REGION=xxx
