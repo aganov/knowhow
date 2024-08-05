@@ -1,4 +1,4 @@
-# Passenger + Nginx on Ubuntu 18.04 LTS (with APT)
+# Passenger + Nginx on Ubuntu 24.04 LTS (with APT)
 
 NOTICE: Use https://www.phusionpassenger.com/library/install/nginx/install/oss/ to find proper setup instructions
 
@@ -52,7 +52,7 @@ NOTICE:
 ```
 # Enable Diffie-Hellman for TLS
 mkdir /etc/nginx/ssl
-openssl dhparam -out /etc/nginx/ssl/dhparams.pem 2048
+openssl dhparam -out /etc/nginx/ssl/dhparams.pem 4096
 ```
 
 `/etc/nginx/nginx.conf`
