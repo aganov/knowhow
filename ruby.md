@@ -37,7 +37,7 @@ git clone https://github.com/rbenv/ruby-build.git /usr/local/rbenv/plugins/ruby-
 
 ```bash
 apt-get install autoconf patch build-essential rustc libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libgmp-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev uuid-dev
-apt-get install libjemalloc-dev # If you plan to install ruby `--with-jemalloc`
+apt-get install -y --no-install-recommends libjemalloc-dev libjemalloc2 # If you plan to install ruby `--with-jemalloc`
 ```
 
 Prefix `rbenv install` with `RUBY_CONFIGURE_OPTS=--with-jemalloc` to install ruby with jemalloc instead of `glibc malloc`. This is known to cause problems with passenger in the past. @see https://github.com/phusion/passenger/issues/1747
