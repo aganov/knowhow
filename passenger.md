@@ -69,23 +69,8 @@ events {
 }
 
 http {
-  include       mime.types;
-  default_type  application/octet-stream;
-
-  access_log /var/log/nginx/access.log;
-  error_log /var/log/nginx/error.log;
-
-  # server_names_hash_bucket_size 64;
-  # server_name_in_redirect off;
-
-  ssl_ciphers 'ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA';
-  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-  ssl_prefer_server_ciphers on;
-
   sendfile on;
   tcp_nopush on;
-  tcp_nodelay on;
-  keepalive_timeout 65;
   types_hash_max_size 2048;
   client_max_body_size 128m;
   server_tokens off;
@@ -93,8 +78,17 @@ http {
   # server_names_hash_bucket_size 64;
   # server_name_in_redirect off
 
+  include /etc/nginx/mime.types;
+  default_type application/octet-stream;
+
+  ssl_protocols TLSv1.2 TLSv1.3;
+  ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-CHACHA20-POLY1305;
+  ssl_prefer_server_ciphers on;
+
+  access_log /var/log/nginx/access.log;
+  error_log /var/log/nginx/error.log;
+
   gzip on;
-  gzip_disable "msie6";
 
   gzip_vary on;
   gzip_proxied any;
