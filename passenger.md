@@ -52,7 +52,7 @@ NOTICE:
 ```
 # Enable Diffie-Hellman for TLS
 mkdir /etc/nginx/ssl
-openssl dhparam -out /etc/nginx/ssl/dhparams.pem 4096
+openssl dhparam -out /etc/nginx/ssl/dhparam.pem 4096
 ```
 
 `/etc/nginx/nginx.conf`
@@ -81,9 +81,11 @@ http {
   include /etc/nginx/mime.types;
   default_type application/octet-stream;
 
+  
   ssl_protocols TLSv1.2 TLSv1.3;
   ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-CHACHA20-POLY1305;
   ssl_prefer_server_ciphers on;
+  ssl_dhparam /etc/nginx/ssl/dhparam.pem;
 
   access_log /var/log/nginx/access.log;
   error_log /var/log/nginx/error.log;
