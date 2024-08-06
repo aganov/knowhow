@@ -8,7 +8,11 @@ Description=sidekiq
 After=syslog.target network.target
 
 [Service]
-Type=simple
+Type=notify
+NotifyAccess=all
+# If your Sidekiq process locks up, systemd's watchdog will restart it within seconds.
+WatchdogSec=10
+
 WorkingDirectory=/var/www/example.com/current
 ExecStart=/bin/bash -lc '/usr/local/rbenv/shims/bundle exec sidekiq -e production'
 
