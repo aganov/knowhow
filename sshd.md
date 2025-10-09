@@ -39,3 +39,7 @@ systemctl restart ssh.socket
 ss -tlnp | grep ssh
 ```
 
+```
+PasswordAuthentication no
+PermitEmptyPasswords no
+```
